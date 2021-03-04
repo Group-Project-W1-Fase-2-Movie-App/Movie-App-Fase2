@@ -13,6 +13,10 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
     }
+
+    getCity() {
+      return this.city;
+    }
   };
   Users.init({
     name: DataTypes.STRING,

@@ -1,10 +1,16 @@
-const router = require('express').Router()
-const Controller = require('../controller/controller')
+const express = require('express')
+const router = express.Router()
+const AuthController = require('../controllers/authController.js')
+const WeatherController = require('../controllers/weatherController')
+const authentication = require('../middlewares/authentication')
 
-router.get('/movie', Controller.sessionTmdb)
-router.get('/moviePopular', Controller.moviePopular)
-router.get('/movieDetails', Controller.movieDetails)
-router.get('/searchMovie', Controller.searchMovie)
+router.post('/register', AuthController.register)
+router.post('/login', AuthController.login)
+
+
+router.use(authentication)
+router.get('/weather', WeatherController.getWeather)
+
 
 
 module.exports = router
