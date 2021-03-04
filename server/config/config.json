@@ -1,8 +1,8 @@
 {
   "development": {
     "username": "postgres",
-    "password": "root",
-    "database": "movie_app_phase_2",
+    "password": "postgres",
+    "database": "GP-P2 W1-Movie",
     "host": "127.0.0.1",
     "dialect": "postgres"
   },
