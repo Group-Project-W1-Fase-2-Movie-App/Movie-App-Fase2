@@ -7,7 +7,7 @@ const cors = require("cors")
 const express = require('express')
 const app = express()
 const router = require('./routes/index.js')
-const errHandler = require('../middlewares/errorHandler')
+const errHandler = require('./middlewares/errorHandler')
 const port = process.env.port
 
 
