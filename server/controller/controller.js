@@ -12,7 +12,7 @@ class Controller{
       res.status(200).json(data.data)
     })
     .catch(err => {
-      console.log(err)
+      next(err)
     })
   }
 
@@ -30,7 +30,7 @@ class Controller{
       // }
     })
     .catch(err => {
-      console.log(err)
+      next(err)
     })
   }
 
@@ -44,7 +44,7 @@ class Controller{
       res.status(200).json(movie.data)
     })
     .catch(err => {
-      console.log(err)
+      next(err)
     })
   }
 
@@ -58,7 +58,7 @@ class Controller{
       res.status(200).json(data.data)
     })
     .catch(err => {
-      console.log(err)
+      next(err)
     })
   }
 }
