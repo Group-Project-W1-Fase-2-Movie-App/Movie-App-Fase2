@@ -53,13 +53,13 @@ class authController {
     }
 
     static register(req, res, next) {
-        const { email, password } = req.body
-        const newUser = { email, password }
+        const { name, email, password } = req.body
+        const newUser = { name, email, password }
 
         User.create(newUser)
             .then(user => {
                 const { id, email } = user
-                res.status(201).json({ message: "ceate new user success", id, email })
+                res.status(201).json({ message: "ceate new user success", id, name, email })
             })
             .catch(err => {
                 if (err.name === 'SequelizeUniqueConstraintError') {
