@@ -24,7 +24,7 @@ _Response (200 - OK)_
         {
             "adult": false,
             "backdrop_path": "/fev8UFNFFYsD5q7AcYS8LyTzqwl.jpg",
-            "genre_ids": [
+            "genre_ids":  [
                 28,
                 35,
                 10751
