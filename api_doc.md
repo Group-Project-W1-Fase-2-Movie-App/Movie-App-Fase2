@@ -1,3 +1,33 @@
+### POST /register
+```
+Request body:
+{
+  name:"<user name>",
+  email:"<user email>",
+  password: "<user password>"
+}
+```
+
+
+* Success Response 
+```
+- Status: 201
+- Response Body: 
+{
+  "message": "create new user success",
+  "id": "<user id from system",
+  "email": "<user email >"
+}
+```
+* Error Response 
+```
+- Status: 400
+- Response Body: 
+{
+  "message": "<error message>"
+}
+```
+
 ### GET /moviePopular
 
 > Get popular movie list
@@ -318,3 +348,9 @@ _Response (500 - Internal Server Error)_
   isHandled: false
 }
 ```
+
+
+
+
+
+
