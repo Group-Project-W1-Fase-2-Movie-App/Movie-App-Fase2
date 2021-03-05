@@ -27,6 +27,9 @@ $("document").ready(() => {
     e.preventDefault();
     login();
   });
+  $('#logout').on('click',() => {
+    signOut()
+  })
 
   $("#btn-submit").on("click", (e) => {
     e.preventDefault();
@@ -150,15 +153,18 @@ function signOut() {
   auth2.signOut().then(function () {
     console.log("User signed out.");
   });
+  checkLocalStorage()
 }
 
 function checkLocalStorage() {
   if (localStorage.token) {
     $("#loginPage, #registerForm").hide();
     $("#main-list").show();
+    $('#site-content').css('display','block')
   } else {
     $("#login-page").show();
-    $("#main-list, #registration-form").hide();
+    $('#site-content').hide()
+    $("#main-list, #registerPage").hide();
   }
 }
 
