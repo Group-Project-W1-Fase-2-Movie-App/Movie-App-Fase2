@@ -408,9 +408,45 @@ _Response (500 - Internal Server Error)_
   message: internal server error
   isHandled: false
 }
+
 ```
 
+### GET /weather
+Request Header
+```
+{
+  "access_token" : "<access_token>"
+}
+```
 
+Request Body
+```
+{
+  "city" : "<user city>"
+}
+```
+
+* Success Response 
+```
+- Status: 200
+- Response Body: 
+data : {
+    lastUpdate: "<last update>",
+    temperature: "<tempetaure in Celcius>",
+    textWeather: "< condition current weather>",
+    imageURL: "<icon image weather>"
+}
+```
+
+* Error Response 
+```
+- Status: 500
+- Response Body: 
+{
+    message: "<internal servers errors>"
+}
+
+```
 
 
 

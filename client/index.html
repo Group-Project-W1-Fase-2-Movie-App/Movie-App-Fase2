@@ -33,10 +33,13 @@
 				<div class="login-form">
 
 					<div class="shadow p-3 mb-5 bg-white rounded" style="width: 400px;">
-
 						<form action="" id="loginForm" method="POST">
 							<div class="card-body">
 								<h4 style="margin-bottom: 30px;">Login</h4>
+								<div id="errors-login">
+							
+								</div>
+								<br>
 								<div class="form-group">
 									<label for="">Email</label>
 									<input type="email" name="email" id="login-email"" class=" form-control">
@@ -67,10 +70,12 @@
 				<div class="login-form">
 					<div class="shadow p-3 mb-5 bg-white rounded" style="width: 400px;">
 						<div class="card-body">
-
-
 							<form action="" method="POST" id="registerForm">
 								<h4 style="margin-bottom: 30px;">Register</h4>
+								<div id="errors-register">
+								
+								</div>
+								<br>
 								<div class="form-group">
 									<label for="">Name</label>
 									<input type="text" name="name" id="name" class="form-control">

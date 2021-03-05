@@ -92,7 +92,19 @@ function registration() {
         $("#registration-form").show();
       }
     })
-    .fail((err) => console.log(err))
+    .fail((xhr, status, err) => {
+      let errors = xhr.responseJSON
+      if (typeof errors.message == 'string') {
+        let alert = $('<alert />').attr('class','alert alert-danger').attr('role','alert').text(errors.message)
+        $('#errors-login').html(alert)
+      }else{
+        $('#errors-login').html('')
+        errors.message.forEach(element => {
+          let alert = $('<alert />').attr('class','alert alert-danger').attr('role','alert').text(element)
+          $('#errors-login').append(alert)
+        });
+      }
+    })
     .always(() => {
       $("#email").val("");
       $("#password").val("");
@@ -120,8 +132,18 @@ function login(email = null, password = null) {
         $('#site-content').show()
       }
     })
-    .fail((err) => {
-      console.log(err);
+    .fail((xhr, status, err) => {
+      let errors = xhr.responseJSON
+      if (typeof errors.message == 'string') {
+        let alert = $('<alert />').attr('class','alert alert-danger').attr('role','alert').text(errors.message)
+        $('#errors-login').html(alert)
+      }else{
+        $('#errors-login').html('')
+        errors.message.forEach(element => {
+          let alert = $('<alert />').attr('class','alert alert-danger').attr('role','alert').text(element)
+          $('#errors-login').append(alert)
+        });
+      }
     })
     .always(() => {
       $("#login-email").val("");

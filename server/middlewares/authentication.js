@@ -6,10 +6,9 @@ const authentication = (req, res, next) => {
 
   let { id, email } = verifyToken(req.headers.access_token)
   try {
-    console.log(id, email)
+    // console.log(id, email)
     Users.findByPk(id)
       .then(user => {
-        console.log(user)
         req.logginUser = { id: user.id, email: user.email }
         next()
       })
