@@ -13,6 +13,7 @@ router.get('/moviePopular', MovieController.moviePopular)
 router.get('/movieNew', MovieController.movieNew)
 router.get('/movieToprated', MovieController.movieToprated)
 router.get('/movieTrending', MovieController.movieTrending)
+router.get('/movieDetails/:id', MovieController.movieDetails)
 router.use(authentication)
 router.get('/weather', WeatherController.getWeather)
 
