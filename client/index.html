@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-signin-client_id" content="339836721821-1hv66v7fsoovn466ilvsaggmrce9h7vf.apps.googleusercontent.com"> <!-- isi dengan kode dari google -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
     <link href="http://fonts.googleapis.com/css?family=Roboto:300,400,700|" rel="stylesheet" type="text/css">
@@ -138,8 +139,6 @@
 						<button type="button" class="menu-toggle"><i class="fa fa-bars"></i></button>
 						<ul class="menu">
 							<li class="menu-item current-menu-item" id="home"><a href="/">Home</a></li>
-							<li class="menu-item" id="register"><a href="#">Register</a></li>
-							<li class="menu-item" id="login"><a href="#">Login</a></li>
 							<li class="menu-item" id="logout"><a href="#">Logout</a></li>
 							<li class="menu-item" id="contact"><a href="#">Contact</a></li>
 							
@@ -159,13 +158,26 @@
 					<div class="page">
 						<div class="row">
 							<div class="col-md-9">
-								<div class="slider">
+								<!-- <div class="slider">
 									<ul class="slides" id="carousel-main">
-										 <li><a href="#"><img src="dummy/slide-1.jpg" alt="Slide 1"></a></li>
+										<li><a href="#"><img src="dummy/slide-1.jpg" alt="Slide 1"></a></li>
 										<li><a href="#"><img src="dummy/slide-2.jpg" alt="Slide 2"></a></li>
-										<li><a href="#"><img src="dummy/slide-3.jpg" alt="Slide 3"></a></li> 
+										<li><a href="#"><img src="dummy/slide-3.jpg" alt="Slide 3"></a></li>
 									</ul>
-								</div>
+								</div> -->
+                <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+                  <div class="carousel-inner" id="carousel-main">
+                    <!-- <div class="carousel-item active">
+                      <img class="d-block w-100" src="..." alt="First slide">
+                    </div>
+                    <div class="carousel-item">
+                      <img class="d-block w-100" src="..." alt="Second slide">
+                    </div>
+                    <div class="carousel-item">
+                      <img class="d-block w-100" src="..." alt="Third slide">
+                    </div> -->
+                  </div>
+                </div>
 							</div>
 							<div class="col-md-3">
 								<div class="row" id="kanan-carousel">
@@ -209,8 +221,8 @@
 							<div class="col-md-4">
 								<h2 class="section-title">PREMIERE</h2>
 								<p>Rilis film terbaru</p>
-								<ul class="movie-schedule">
-									<li>
+								<ul class="movie-schedule" id="upcoming">
+									<!-- <li>
 										<div class="date">A</div>
 										<h2 class="entry-title"><a href="#">Link konten</a></h2>
 									</li>
@@ -225,14 +237,14 @@
 									<li>
 										<div class="date">D</div>
 										<h2 class="entry-title"><a href="#">Link konten</a></h2>
-									</li>
+									</li> -->
 								</ul> <!-- .movie-schedule -->
 							</div>
 							<div class="col-md-4">
 								<h2 class="section-title">RATING</h2>
 								<p>Rating film</p>
-								<ul class="movie-schedule">
-									<li>
+								<ul class="movie-schedule" id="toprated">
+									<!-- <li>
 										<div class="date">2</div>
 										<h2 class="entry-title"><a href="#">Link konten</a></h2>
 									</li>
@@ -247,14 +259,14 @@
 									<li>
 										<div class="date">5</div>
 										<h2 class="entry-title"><a href="#">Link konten</a></h2>
-									</li>
+									</li> -->
 								</ul> <!-- .movie-schedule -->
 							</div>
 							<div class="col-md-4">
-								<h2 class="section-title">GENRE</h2>
-								<p>Temukan movie sesuai kategori</p>
-								<ul class="movie-schedule">
-									<li>
+								<h2 class="section-title">TRENDING</h2>
+								<p>Trending movie</p>
+								<ul class="movie-schedule" id="trending">
+									<!-- <li>
 										<div class="date">A</div>
 										<h2 class="entry-title"><a href="#">Link konten</a></h2>
 									</li>
@@ -269,11 +281,45 @@
 									<li>
 										<div class="date">D</div>
 										<h2 class="entry-title"><a href="#">Link konten</a></h2>
-									</li>
+									</li> -->
 								</ul> <!-- .movie-schedule -->
 							</div>
 						</div>
 					</div>
+
+          <!-- modal -->
+          <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="modalTitle"></h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <div clas="container">
+                    <div class="row">
+                      <div class="col-md-2">
+                      </div>
+                      <div class="col-md-8">
+                        <img id="modal-img" src="" alt="">
+                      </div>
+                    </div>
+                  </div>
+                  <hr>
+                  <p id="modal-body"></p>
+                  <hr>
+                  <p id="modal-body-popularity"></p>
+                  <p id="modal-body-relDate"></p>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="exampleModal">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
 				</div> <!-- .container -->
 			</main>
 
@@ -304,6 +350,7 @@
 			</footer>
 		</div>
 		
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>		
 		<script src="js/plugins.js"></script>
 		<script src="js/app.js"></script>
     <script src="js/movie.js"></script>

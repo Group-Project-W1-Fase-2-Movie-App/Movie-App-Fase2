@@ -34,7 +34,7 @@ class MovieController{
   }
 
   static movieDetails(req, res, next){
-    let { movieId } = req.body
+    let movieId = +req.params.id
     axios({
       url: `https://api.themoviedb.org/3/movie/${movieId}?api_key=${process.env.API_MOVIE_KEY}&language=en-US`,
       method: 'GET'
