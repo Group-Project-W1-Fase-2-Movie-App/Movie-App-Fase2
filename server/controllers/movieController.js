@@ -61,6 +61,45 @@ class MovieController{
       next(err)
     })
   }
+
+  static movieNew(req, res, next){
+    axios({
+      url: `https://api.themoviedb.org/3/movie/upcoming?api_key=${process.env.API_MOVIE_KEY}&language=en-US&page=1`,
+      method: 'GET'
+    })
+    .then(data => {
+      res.status(200).json(data.data)
+    })
+    .catch(err => {
+      next(err)
+    })
+  }
+
+  static movieToprated(req, res, next){
+    axios({
+      url: `https://api.themoviedb.org/3/movie/top_rated?api_key=${process.env.API_MOVIE_KEY}&language=en-US&page=1`,
+      method: 'GET'
+    })
+    .then(data => {
+      res.status(200).json(data.data)
+    })
+    .catch(err => {
+      next(err)
+    })
+  }
+
+  static movieTrending(req, res, next){
+    axios({
+      url: `https://api.themoviedb.org/3/trending/all/day?api_key=${process.env.API_MOVIE_KEY}`,
+      method: 'GET'
+    })
+    .then(data => {
+      res.status(200).json(data.data)
+    })
+    .catch(err => {
+      next(err)
+    })
+  }
 }
 
 module.exports = MovieController

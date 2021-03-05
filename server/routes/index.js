@@ -10,6 +10,9 @@ router.post('/login', AuthController.login)
 
 
 router.get('/moviePopular', MovieController.moviePopular)
+router.get('/movieNew', MovieController.movieNew)
+router.get('/movieToprated', MovieController.movieToprated)
+router.get('/movieTrending', MovieController.movieTrending)
 router.use(authentication)
 router.get('/weather', WeatherController.getWeather)
 
