@@ -52,7 +52,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     hooks : {
       beforeCreate(data, opt) {
-        data.password = hash(data.passwordd)
+        data.password = hash(data.password)
       }
     },
     sequelize,
