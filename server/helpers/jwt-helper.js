@@ -1,6 +1,7 @@
 const jwt = require('jsonwebtoken')
 
 const sign = (data) => {
+    console.log(data)
     return jwt.sign(data, process.env.JWT_SECRET)
 }
 const verifyToken = (data) => {

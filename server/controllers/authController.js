@@ -31,6 +31,7 @@ class authController {
                     }
                 })
                 .catch(err => {
+                    console.log(err)
                     if (err.msg) {
                         next({ code: 400, msg: err.msg })
                     } else {

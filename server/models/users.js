@@ -35,9 +35,9 @@ module.exports = (sequelize, DataTypes) => {
         }
       }
     },
-    password:{
+    password: {
       type: DataTypes.TEXT,
-      allowNull:false,
+      allowNull: false,
       validate: {
         notNull: {
           args: true,
@@ -50,7 +50,7 @@ module.exports = (sequelize, DataTypes) => {
       }
     }
   }, {
-    hooks : {
+    hooks: {
       beforeCreate(data, opt) {
         data.password = hash(data.password)
       }
