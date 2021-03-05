@@ -38,6 +38,7 @@ class authController {
                     }
                 })
                 .catch(err => {
+                    console.log(err)
                     if (err.msg) {
                         next({ code: 400, msg: err.msg })
                     } else {
@@ -56,7 +57,7 @@ class authController {
         const { name, email, password } = req.body
         const newUser = { name, email, password }
 
-        User.create(newUser)
+        Model.create(newUser)
             .then(user => {
                 const { id, email } = user
                 res.status(201).json({ message: "ceate new user success", id, name, email })
@@ -65,6 +66,7 @@ class authController {
                 if (err.name === 'SequelizeUniqueConstraintError') {
                     next({ code: 400, name: err.name, arrErrors: err.errors })
                 } else {
+                    console.log(err)
                     next({ code: 500, msg: 'internal server error' })
                 }
             })
