@@ -3,10 +3,12 @@ $(document).ready(() => {
 })
 
 function fetchDataWeather() {
-
   $.ajax({
     url: 'http://localhost:3000/weather',
     method: 'GET',
+    headers: {
+      access_token: localStorage.getItem('token')
+    },
     body: {
       city: localStorage.city,
     },
@@ -17,9 +19,10 @@ function fetchDataWeather() {
       const temperature = response.current.temp_c;
       const textWeather = response.current.condition.text;
       const imageURL = response.current.condition.icon;
-      $("#lastUpdate").text("lastUpdate")
-      $("#tempetature").text("temperature")
-      $("#textWeather").text("textWeather")
+      console.log(temperature)
+      $("#lastUpdate").text(lastUpdate)
+      $("#tempetature").text(temperature+ '°C')
+      $("#textWeather").text(textWeather)
       $("#iconWeather").attr('src', imageURL)
 
     })

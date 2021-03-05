@@ -31,7 +31,6 @@ class authController {
                     }
                 })
                 .catch(err => {
-                    console.log(err)
                     if (err.msg) {
                         next({ code: 400, msg: err.msg })
                     } else {
@@ -59,7 +58,6 @@ class authController {
                 if (err.name === 'SequelizeUniqueConstraintError') {
                     next({ code: 400, name: err.name, arrErrors: err.errors })
                 } else {
-                    console.log(err)
                     next({ code: 500, msg: 'internal server error' })
                 }
             })

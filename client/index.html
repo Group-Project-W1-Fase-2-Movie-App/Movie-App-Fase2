@@ -21,7 +21,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script src="https://apis.google.com/js/platform.js" async defer></script>
-    <script src="main.js" ></script>
+    <script src="main.js" async defer></script>
     
 
 </head>
@@ -118,10 +118,10 @@
 				<table class="table" style="margin: 10px;" id="weather-view">
 					<thead class="thead-light">
 						<tr>
-							<th id="lastUpdate" scope="col">Last Update</th>
-							<th id="tempetature" scope="col">Temperature</th>
-							<th id="textWeather" scope="col">Text</th>
-							<th id="iconWeather" scope="col">Image</th>
+							<th scope="col">Last Update <span id="lastUpdate" style="color:rgb(77, 198, 255)"></span></th>
+							<th scope="col" >Temperature <span id="tempetature" style="color:rgb(77, 198, 255)"></span></th>
+							<th scope="col" >Current Weather <span style="color:rgb(77, 198, 255)" id="textWeather" ></span> </th>
+							<th scope="col"><img id="iconWeather" alt=""> </th>
 
 						</tr>
 					</thead>
@@ -135,8 +135,21 @@
 						<small class="site-description">Aplikasi film terbaik bagi anda !</small>
 					</div>
 				</a> <!-- #branding -->
+				<div class="main-navigation">
+					<button type="button" class="menu-toggle"><i class="fa fa-bars"></i></button>
+					<ul class="menu">
+						<li class="menu-item current-menu-item" id="home"><a href="/">Home</a></li>
+						<li class="menu-item" id="logout"><a href="#">Logout</a></li>
+						<li class="menu-item" id="contact"><a href="#">Contact</a></li>
 
-					<div class="mobile-navigation"></div>
+					</ul> <!-- .menu -->
+
+					<form action="#" class="search-form">
+						<input type="text" placeholder="Search...">
+						<button><i class="fa fa-search"></i></button>
+					</form>
+				</div> <!-- .main-navigation -->
+				<div class="mobile-navigation"></div>
 				</div>
 			</header>
 			<main class="main-content">

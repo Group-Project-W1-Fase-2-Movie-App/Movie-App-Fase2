@@ -10,7 +10,6 @@ class WeatherController {
       url: `http://api.weatherapi.com/v1/current.json?key=${process.env.API_KEY}&q=${city}&aqi=no`
     })
       .then(response => {
-        
         res.status(200).json(response.data)
       })
       .catch(err => {

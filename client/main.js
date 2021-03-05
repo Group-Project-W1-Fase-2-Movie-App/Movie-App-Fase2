@@ -140,6 +140,13 @@ function onSignIn(googleUser) {
     .done((data) => {
       // console.log(data);
       if (data) {
+        localStorage.setItem("token", data.data.access_token);
+        if (data) {
+          $("#loginPage").hide();
+          $("#registerPage").hide();
+          $("#main-list").show();
+          $('#site-content').show()
+        }
         $("#googleLogout").show();
       } else {
         $("#googleLogout").hide();
@@ -150,11 +157,11 @@ function onSignIn(googleUser) {
 
 function signOut() {
   var auth2 = gapi.auth2.getAuthInstance();
-  logout()
   auth2.signOut().then(function () {
+    logout()
+    window.location.reload()
     console.log("User signed out.");
   });
-  checkLocalStorage()
 }
 
 function checkLocalStorage() {

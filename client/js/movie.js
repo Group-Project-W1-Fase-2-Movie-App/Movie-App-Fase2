@@ -61,7 +61,7 @@ function fetchMovieCarousel(){
       $("#carousel-main").append(
         `
           <div class="carousel-item">
-            <img class="d-block w-100" src="https://www.themoviedb.org/t/p/w600_and_h900_bestv2/${resp.results[i].poster_path}" alt="${count} slide"
+            <img class="d-block w-100" onclick="goToDetails(${resp.results[i].id})" src="https://www.themoviedb.org/t/p/w600_and_h900_bestv2/${resp.results[i].poster_path}" alt="${count} slide"
               style="height: 640px" 
             >
           </div>
