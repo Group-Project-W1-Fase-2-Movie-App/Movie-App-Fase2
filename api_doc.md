@@ -27,6 +27,67 @@ Request body:
   "message": "<error message>"
 }
 ```
+### POST /login
+```
+Request body:
+{
+  email:"<user email>",
+  password: "<user password>"
+}
+```
+
+
+* Success Response 
+```
+- Status: 200
+- Response Body: 
+{
+  "success": true",
+  "data" : {
+    "id": "<user id from system",
+    "email": "<user email >"
+    "access_token" : "<access token>"
+  }
+}
+```
+* Error Response 
+```
+- Status: 400
+- Response Body: 
+{
+  "message": "<error message>"
+}
+```
+### POST /googleLogin
+```
+Request body:
+{
+  token:"<user oauth token>",
+}
+```
+
+
+* Success Response 
+```
+- Status: 200
+- Response Body: 
+{
+  "success": true",
+  "data" : {
+    "id": "<user id from system",
+    "email": "<user email >"
+    "access_token" : "<access token>"
+  }
+}
+```
+* Error Response 
+```
+- Status: 400
+- Response Body: 
+{
+  "message": "<error message>"
+}
+```
 
 ### GET /moviePopular
 
