@@ -117,6 +117,7 @@ function login(email = null, password = null) {
         $("#loginPage").hide();
         $("#registerPage").hide();
         $("#main-list").show();
+        $('#site-content').show()
       }
     })
     .fail((err) => {
