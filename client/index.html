@@ -19,14 +19,9 @@
     <script src="https://apis.google.com/js/platform.js" async defer></script>
     <meta name="google-signin-client_id" content=""> <!-- isi dengan kode dari google -->
     
-
-<script src="/app.js"></script>
-<link rel="stylesheet" href="/app.css">
 <link rel="stylesheet" href="style.css">
 
 </head>
-
-
 
 <body class="pb-8">
     <section id="loginPage" class="h-100">
@@ -35,6 +30,7 @@
                 <div class="login-form">
                    
                     <div class="shadow p-3 mb-5 bg-white rounded" style="width: 400px;">
+						
                         <form action="" id="loginForm" method="POST">
                             <div class="card-body">
                                 <h4 style="margin-bottom: 30px;">Login</h4>
@@ -66,9 +62,10 @@
         <div class="container h-100">
             <div class="row justify-content-md-center h-100">
                 <div class="login-form">
-                    
                     <div class="shadow p-3 mb-5 bg-white rounded" style="width: 400px;">
                         <div class="card-body">
+
+
                             <form action="" method="POST" id="registerForm">
                                 <h4 style="margin-bottom: 30px;">Register</h4>
                                 <div class="form-group">
@@ -98,12 +95,37 @@
             </div>
         </div>
     </section>
+<!-- weather-->
 
 
 <!-- Masuk ke Konten Utama -->
     
 		<div id="site-content">
 			<header class="site-header">
+
+<!-- weather -->
+<div id="weather" style="margin: 70px 70px 70px 70px;">
+	
+	<!--
+	<nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+	  <button id="btn-logout">Logout</button>
+	</nav>
+	-->
+
+	<table class="table" style="margin: 10px;" id="weather-view">
+	  <thead class="thead-light">
+		<tr>
+			<th scope="col">Last Update</th>
+		  <th scope="col">Temperature</th>
+		  <th scope="col">Text</th>
+		  <th scope="col">Image</th>
+		 
+		</tr>
+	  </thead>
+	</table>
+  </div>
+
+
 				<div class="container">
 					<a href="/" id="branding">
 						<img src="images/logo.png" alt="" class="logo">
@@ -139,16 +161,16 @@
 						<div class="row">
 							<div class="col-md-9">
 								<div class="slider">
-									<ul class="slides">
-										<li><a href="#"><img src="dummy/slide-1.jpg" alt="Slide 1"></a></li>
+									<ul class="slides" id="carousel-main">
+										 <li><a href="#"><img src="dummy/slide-1.jpg" alt="Slide 1"></a></li>
 										<li><a href="#"><img src="dummy/slide-2.jpg" alt="Slide 2"></a></li>
-										<li><a href="#"><img src="dummy/slide-3.jpg" alt="Slide 3"></a></li>
+										<li><a href="#"><img src="dummy/slide-3.jpg" alt="Slide 3"></a></li> 
 									</ul>
 								</div>
 							</div>
 							<div class="col-md-3">
-								<div class="row">
-									<div class="col-sm-6 col-md-12">
+								<div class="row" id="kanan-carousel">
+									 <div class="col-sm-6 col-md-12">
 										<div class="latest-movie">
 											<a href="#"><img src="dummy/thumb-1.jpg" alt="Movie 1"></a>
 										</div>
@@ -157,12 +179,12 @@
 										<div class="latest-movie">
 											<a href="#"><img src="dummy/thumb-2.jpg" alt="Movie 2"></a>
 										</div>
-									</div>
+									</div> 
 								</div>
 							</div>
 						</div> <!-- .row -->
-						<div class="row">
-							<div class="col-sm-6 col-md-3">
+						<div class="row" id="bawah-carousel">
+							 <div class="col-sm-6 col-md-3">
 								<div class="latest-movie">
 									<a href="#"><img src="dummy/thumb-3.jpg" alt="Movie 3"></a>
 								</div>
@@ -181,7 +203,7 @@
 								<div class="latest-movie">
 									<a href="#"><img src="dummy/thumb-6.jpg" alt="Movie 6"></a>
 								</div>
-							</div>
+							</div> 
 						</div> <!-- .row -->
 						
 						<div class="row">
@@ -287,6 +309,7 @@
 		<script src="js/jquery-1.11.1.min.js"></script>
 		<script src="js/plugins.js"></script>
 		<script src="js/app.js"></script>
+    <script src="js/movie.js"></script>
 </body>
 
 </html>
