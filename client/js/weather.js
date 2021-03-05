@@ -19,8 +19,8 @@ function fetchDataWeather() {
       const imageURL = response.current.condition.icon;
       $("#lastUpdate").text("lastUpdate")
       $("#tempetature").text("temperature")
-      $("#text").text("textWeather")
-      $("#iconWeather").attr(src, "imageURL")
+      $("#textWeather").text("textWeather")
+      $("#iconWeather").attr('src', imageURL)
 
     })
     .fail(err => {
