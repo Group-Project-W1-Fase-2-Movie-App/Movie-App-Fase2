@@ -2,7 +2,7 @@
   "development": {
     "username": "postgres",
     "password": "postgres",
-    "database": "GP-P2 W1-Movie",
+    "database": "movie_app_phase_2",
     "host": "127.0.0.1",
     "dialect": "postgres"
   },

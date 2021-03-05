@@ -11,7 +11,6 @@ class MovieController{
       res.status(200).json(data.data)
     })
     .catch(err => {
-      console.log(err, 'masuk siniiiiiiiiiiiiiiiiiiiiiiiii')
       next({ code: 500, msg: 'internal server errors' })
     })
   }

@@ -1,16 +1,31 @@
-const baseURL = `http://localhost:3000`;
+const baseURL = `http://localhost:3000/`;
 $("document").ready(() => {
   checkLocalStorage();
   // fetchMovieCarousel();
 
   $("#register-link").on("click", (e) => {
     e.preventDefault();
+    $('#loginPage').css('display','none')
+    $('#registerPage').css('display','block')
     registration();
+  });
+  $("#login-link").on("click", (e) => {
+    e.preventDefault();
+    $('#loginPage').css('display','block')
+    $('#registerPage').css('display','none')
   });
 
   $("#register").on("click", (e) => {
     e.preventDefault();
     registration();
+  });
+  $("#registerForm").on("submit", (e) => {
+    e.preventDefault();
+    registration();
+  });
+  $("#loginForm").on("submit", (e) => {
+    e.preventDefault();
+    login();
   });
 
   $("#btn-submit").on("click", (e) => {
@@ -56,18 +71,19 @@ $("document").ready(() => {
 function registration() {
   $("#login-page").hide();
   $("#registration-form").show();
-  const email = $("#reg-email").val();
-  const password = $("#reg-password").val();
+  let name = $("#name").val();
+  let email = $("#email").val();
+  let pass = $("#password").val();
+  let password = pass
 
   $.ajax({
     url: baseURL + "register",
     method: "POST",
-    data: { email, password },
+    data: { name, email, password },
   })
     .done((res) => {
       if (res.email) {
-        $("#login-page").show();
-        $("#registration-form").hide();
+        login(res.email,password)
       } else {
         $("#login-page").hide();
         $("#registration-form").show();
@@ -75,15 +91,17 @@ function registration() {
     })
     .fail((err) => console.log(err))
     .always(() => {
-      $("#reg-email").val("");
-      $("#reg-password").val("");
+      $("#email").val("");
+      $("#password").val("");
     });
 }
 
-function login() {
+function login(email = null, password = null) {
   $("#registration-form").hide();
-  const email = $("#email").val();
-  const password = $("#password").val();
+  if (!email && !password) {
+    email = $("#login-email").val();
+    password = $("#login-password").val();
+  }
 
   $.ajax({
     url: baseURL + "login",
@@ -91,9 +109,10 @@ function login() {
     data: { email, password },
   })
     .done((res) => {
-      localStorage.setItem("token", res.token);
+      localStorage.setItem("token", res.data.access_token);
       if (res) {
-        $("#login-page").hide();
+        $("#loginPage").hide();
+        $("#registerPage").hide();
         $("#main-list").show();
       }
     })
@@ -101,8 +120,8 @@ function login() {
       console.log(err);
     })
     .always(() => {
-      $("#email").val("");
-      $("#password").val("");
+      $("#login-email").val("");
+      $("#login-password").val("");
     });
 }
 
@@ -127,6 +146,7 @@ function onSignIn(googleUser) {
 
 function signOut() {
   var auth2 = gapi.auth2.getAuthInstance();
+  logout()
   auth2.signOut().then(function () {
     console.log("User signed out.");
   });
@@ -134,7 +154,7 @@ function signOut() {
 
 function checkLocalStorage() {
   if (localStorage.token) {
-    $("#login-page, #registration-form").hide();
+    $("#loginPage, #registerForm").hide();
     $("#main-list").show();
   } else {
     $("#login-page").show();
