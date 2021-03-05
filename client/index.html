@@ -30,6 +30,7 @@
                 <div class="login-form">
                    
                     <div class="shadow p-3 mb-5 bg-white rounded" style="width: 400px;">
+						
                         <form action="" id="loginForm" method="POST">
                             <div class="card-body">
                                 <h4 style="margin-bottom: 30px;">Login</h4>
@@ -61,9 +62,10 @@
         <div class="container h-100">
             <div class="row justify-content-md-center h-100">
                 <div class="login-form">
-                    
                     <div class="shadow p-3 mb-5 bg-white rounded" style="width: 400px;">
                         <div class="card-body">
+
+
                             <form action="" method="POST" id="registerForm">
                                 <h4 style="margin-bottom: 30px;">Register</h4>
                                 <div class="form-group">
@@ -93,12 +95,37 @@
             </div>
         </div>
     </section>
+<!-- weather-->
 
 
 <!-- Masuk ke Konten Utama -->
     
 		<div id="site-content">
 			<header class="site-header">
+
+<!-- weather -->
+<div id="weather" style="margin: 70px 70px 70px 70px;">
+	
+	<!--
+	<nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+	  <button id="btn-logout">Logout</button>
+	</nav>
+	-->
+
+	<table class="table" style="margin: 10px;" id="weather-view">
+	  <thead class="thead-light">
+		<tr>
+			<th scope="col">Last Update</th>
+		  <th scope="col">Temperature</th>
+		  <th scope="col">Text</th>
+		  <th scope="col">Image</th>
+		 
+		</tr>
+	  </thead>
+	</table>
+  </div>
+
+
 				<div class="container">
 					<a href="/" id="branding">
 						<img src="images/logo.png" alt="" class="logo">
